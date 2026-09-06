@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="4.2">
+  <Ad id="webhook-repro-001" sequence="1">
+    <InLine>
+      <AdSystem version="1.0">GMana Test</AdSystem>
+      <AdTitle>Webhook Macro Reproduction Test</AdTitle>
+
+      <Impression><![CDATA[
+        https://example.com/impression?user=[user.id]&player=[player.idxseg]&audience=[webhook.audienceCodes]
+      ]]></Impression>
+
+      <Creatives>
+        <Creative>
+          <Linear>
+            <Duration>00:00:30</Duration>
+
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[
+                https://example.com/start?audience=[webhook.audienceCodes]
+              ]]></Tracking>
+              <Tracking event="complete"><![CDATA[
+                https://example.com/complete?audience=[webhook.audienceCodes]
+              ]]></Tracking>
+            </TrackingEvents>
+
+            <VideoClicks>
+              <ClickThrough><![CDATA[
+                https://example.com/click?audience=[webhook.audienceCodes]
+              ]]></ClickThrough>
+
+            </VideoClicks>
+
+            <MediaFiles>
+              <MediaFile
+                delivery="progressive"
+                type="video/mp4"
+                width="640"
+                height="360"
+                bitrate="1000">
+                <![CDATA[
+                  https://s-usweb.dotomi.com/archiver/transcoded-videos/2c4/2c45d3a5398b0e915668e77c60e1f32f57b22eca06c17c00bc046d768bee1b46.mp4
+                ]]>
+              </MediaFile>
+            </MediaFiles>
+
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
